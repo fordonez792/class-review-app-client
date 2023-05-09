@@ -77,6 +77,14 @@ const Navbar = () => {
     }
   };
 
+  // If clicked on view all results then navigate to the search results page
+  const navigateSearchResults = (search) => {
+    searchbarRef.current.blur();
+    setIsSearchOpen(false);
+    setNavSearch("");
+    navigate(`/search/${search}`);
+  };
+
   // Goes to home page and closes the search page
   const navigateHome = () => {
     setIsSearchOpen(false);
@@ -181,8 +189,8 @@ const Navbar = () => {
                         setIsOpen(false);
                       }}
                       onKeyDown={(e) => {
+                        if (e.key === "Enter") e.preventDefault();
                         if (e.key === "Enter" && navSearchReady) {
-                          e.preventDefault();
                           navigateSearchResults(navSearch);
                         }
                       }}
