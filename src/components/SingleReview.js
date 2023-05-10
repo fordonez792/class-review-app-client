@@ -273,7 +273,7 @@ const SingleReview = ({ review, debouncedValue, position, index, refetch }) => {
           </p>
         )}
         {window.location.pathname === "/account" && (
-          <p className="link">
+          <p className="link" onClick={() => navigateCourse()}>
             {language === "English"
               ? Course.courseEnglishName
               : language === "Chinese" && Course.courseName}
